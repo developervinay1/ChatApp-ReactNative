@@ -15,7 +15,7 @@ export default function StackNavigator() {
         <Stack.Screen
           name="Chat"
           component={ChatScreen}
-          options={{ headerShown: false }}
+          // options={{ headerShown: false }}
         />
         <Stack.Screen
           name="Login"
