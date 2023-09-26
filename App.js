@@ -1,12 +1,25 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import {
+  NativeModules,
+  Platform,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
+import StackNavigator from "./StackNavigator";
 
 export default function App() {
+  const { StatusBarManager } = NativeModules;
   return (
-    <View style={styles.container}>
-      <Text>Let's Start Working on Chat Application using React Native</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView
+      style={{
+        marginTop: Platform.OS === "android" ? StatusBarManager.HEIGHT : 0,
+        flex: 1,
+      }}
+    >
+      <StackNavigator />
+    </SafeAreaView>
   );
 }
 
